@@ -1,0 +1,43 @@
+<div class="mb-3">
+    <label class="form-label">@Label</label>
+    @* El InputFile se utiliza para cargar archivos *@
+    <InputFile OnChange="OnChange" accept=".jpg, .jpeg, .png, .gif"></InputFile>
+</div>
+<div>
+    @if (imageOriginal !=null)
+    {
+        <div>
+            <div style="margin:10px">
+                <img src="data:image/jpeg;base64,@imageOriginal" width="200px" alt="">
+            </div>
+        </div>
+    }
+    @if (imageOptional !=null)
+    {
+        <div>
+            <div style="margin:10px">
+                <img src="@imageOptional" width="200px" alt="">
+            </div>
+        </div>
+    }
+</div>
+@code{
+    private string imageOriginal;
+    [Parameter] public string imageOptional {get;set;}
+    [Parameter] public string Label {get;set;} = "Imagen";
+    [Parameter] public EventCallback <string> ImageSelected{get;set;}
+
+    async Task OnChange(InputFileChangeEventArgs e){
+        var images = e.GetMultipleFiles();
+        foreach (var image in images)
+        {
+            var tamaño = new byte[image.Size];
+            await image.OpenReadStream().ReadAsync(tamaño);
+            imageOriginal = Convert.ToBase64String(tamaño);
+            imageOptional = null;
+            await ImageSelected.InvokeAsync(imageOriginal);
+            StateHasChanged();
+        }
+
+    }
+}

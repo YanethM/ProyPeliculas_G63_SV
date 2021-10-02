@@ -1,0 +1,12 @@
+@page "/movies/create"
+@inject NavigationManager navigationManager
+
+<h6>Crear pelicula</h6>
+<button @onclick="Create">Aceptar</button>
+@code{
+    void Create(){
+        @* Con el navigationManager vamos a redireccionar al usuario a otras rutas dentro del sistema *@
+        Console.WriteLine(navigationManager.Uri);
+        navigationManager.NavigateTo("movie");
+    }
+}

@@ -1,0 +1,11 @@
+@page "/categories/create"
+@using PraticaSemanaIV.Client.Pages.Components
+
+<FormCategory Category = "Category" OnValidSubmit="Create"></FormCategory>
+@code{
+    private Category Category = new Category();
+
+    private void Create(){
+        Console.WriteLine($"Creando la categoría {Category.Name}");
+    }
+}

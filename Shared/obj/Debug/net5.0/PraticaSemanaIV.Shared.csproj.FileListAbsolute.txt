@@ -1,0 +1,12 @@
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\bin\Debug\net5.0\PraticaSemanaIV.Shared.deps.json
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\bin\Debug\net5.0\PraticaSemanaIV.Shared.dll
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\bin\Debug\net5.0\ref\PraticaSemanaIV.Shared.dll
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\bin\Debug\net5.0\PraticaSemanaIV.Shared.pdb
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\obj\Debug\net5.0\PraticaSemanaIV.Shared.csproj.AssemblyReference.cache
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\obj\Debug\net5.0\PraticaSemanaIV.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\obj\Debug\net5.0\PraticaSemanaIV.Shared.AssemblyInfoInputs.cache
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\obj\Debug\net5.0\PraticaSemanaIV.Shared.AssemblyInfo.cs
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\obj\Debug\net5.0\PraticaSemanaIV.Shared.csproj.CoreCompileInputs.cache
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\obj\Debug\net5.0\PraticaSemanaIV.Shared.dll
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\obj\Debug\net5.0\ref\PraticaSemanaIV.Shared.dll
+C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Shared\obj\Debug\net5.0\PraticaSemanaIV.Shared.pdb
