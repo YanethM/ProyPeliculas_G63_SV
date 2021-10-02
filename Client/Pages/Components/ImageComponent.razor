@@ -1,27 +1,27 @@
 <div>
-    <label class="form-label">@Label</label>
-    <div>
-        @* Sólo permitiremos el cargue de una imagen *@
-        <InputFile OnChange="OnChange" accept=".jpg,.png,.jpeg"></InputFile>
-        @* Si quisieramos permitir el cargue de varias imagenes
-        <InputFile multiple OnChange="OnChange" accept=".jpg,.png,.jpeg"></InputFile>
-         *@
+    <div class="row">
+        <div class="col">
+            <label class="form-label">@Label
+            @* Sólo permitiremos el cargue de una imagen *@
+            <InputFile OnChange="OnChange" accept=".jpg,.png,.jpeg,.gif"></InputFile>
+            </label>
+        </div>
     </div>
     <div>
-        @if (imageT !=  null)
+        @if (imageT != null)
         {
             <div>
                 <div style="margin:10px">
-                    <img src="data:image/jpeg;base64,@imageT" width="300px"alt="">
+                    <img src="data:image/jpeg;base64,@imageT" width="300px" alt="">
                 </div>
             </div>
         }
 
-        @if (ImageURL !=  null)
+        @if (ImageURL != null)
         {
             <div>
                 <div style="margin:10px">
-                    <img src="@ImageURL" width="300px"alt="">
+                    <img src="@ImageURL" width="200px" alt="">
                 </div>
             </div>
         }
@@ -32,8 +32,6 @@
     [Parameter] public string Label { get; set; } = "Imagen";
     [Parameter] public string ImageURL { get; set; }
     [Parameter] public EventCallback<string> ImageSelected { get; set; }
-
-
     private string imageT;
     async Task OnChange(InputFileChangeEventArgs e)
     {
@@ -42,7 +40,7 @@
         {
             var tamaño = new byte[image.Size];
             await image.OpenReadStream().ReadAsync(tamaño);
-            imageT =Convert.ToBase64String(tamaño);
+            imageT = Convert.ToBase64String(tamaño);
             ImageURL = null;
             await ImageSelected.InvokeAsync(imageT);
             StateHasChanged();

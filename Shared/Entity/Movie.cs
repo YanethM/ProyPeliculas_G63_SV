@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 using System;
+
 namespace PraticaSemanaIV.Shared.Entity
 {
     public class Movie
@@ -7,11 +9,16 @@ namespace PraticaSemanaIV.Shared.Entity
         public int Id {get;set;}
         [Required(ErrorMessage ="El campo {0} es requerido")]
         public string Name{get;set;}
+        public bool EnCartelera {get;set;}
+        [Required(ErrorMessage ="El campo {0} es requerido")]
         public string Sinopsis{get;set;}
         public string Poster{get;set;}
         [Required (ErrorMessage ="El campo {0} es requerido")]
-        public DateTime Premier{get;set;}
+        public DateTime? Premier{get;set;}
+        [Required(ErrorMessage ="El campo {0} es requerido")]
         public string Trailer{get;set;}
+        [Required (ErrorMessage ="El campo {0} es requerido")]
+        public List <CategoryMovie> CategoriesMovie {get;set;} = new List <CategoryMovie> ();
         public string ShortName
         {
             get{

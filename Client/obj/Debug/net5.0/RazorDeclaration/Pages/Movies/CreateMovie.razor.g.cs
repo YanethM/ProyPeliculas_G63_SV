@@ -96,6 +96,13 @@ using PraticaSemanaIV.Client.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Movies\CreateMovie.razor"
+using PraticaSemanaIV.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/movies/create")]
     public partial class CreateMovie : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -106,18 +113,38 @@ using PraticaSemanaIV.Client.Services;
         #pragma warning restore 1998
 #nullable restore
 #line 6 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Movies\CreateMovie.razor"
-      
-    void Create(){
+       
+    private Movie Movie = new Movie();
+    private List<Category> CategoriasNoSeleccionadas = new List<Category>();
+
+    protected override void OnInitialized()
+    {
+        CategoriasNoSeleccionadas = new List<Category>(){
+new Category(){Id = 1, Name="Comedia"},
+new Category(){Id = 2, Name="Terror"},
+new Category(){Id = 3, Name="Ciencia Ficción"},
+new Category(){Id = 4, Name="Documentales"},
+new Category(){Id = 5, Name="Comedia"}
+};
+    }
+    void Create()
+    {
         
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Movies\CreateMovie.razor"
+#line 22 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Movies\CreateMovie.razor"
                                                                                                         
         Console.WriteLine(navigationManager.Uri);
         navigationManager.NavigateTo("movie");
+        Console.WriteLine($"Pelicula: {Movie.Name}");
+        Console.WriteLine($"Premier: {Movie.Premier}");
+        Console.WriteLine($"Esta en cartelera: {Movie.EnCartelera}");
+        Console.WriteLine($"Poster: {Movie.Poster}");
+        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+
     }
 
 #line default

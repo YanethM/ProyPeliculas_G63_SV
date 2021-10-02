@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace PraticaSemanaIV.Client.Shared
+namespace PraticaSemanaIV.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -96,7 +96,21 @@ using PraticaSemanaIV.Client.Services;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 1 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\FormMovie.razor"
+using PraticaSemanaIV.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\FormMovie.razor"
+using PraticaSemanaIV.Client.Model;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class FormMovie : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -104,15 +118,32 @@ using PraticaSemanaIV.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Shared\NavMenu.razor"
+#line 69 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\FormMovie.razor"
        
-    private bool collapseNavMenu = true;
+    [Parameter] public Movie Movie { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+    [Parameter] public List<Category> CategoriasSeleccionadas { get; set; } = new List<Category>();
+    [Parameter] public List<Category> CategoriasNoSeleccionadas { get; set; } = new List<Category>();
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string posterTemporal;
+    private List<SelectorMultipleModel> NoSeleccionados { get; set; } = new List<SelectorMultipleModel>();
 
-    private void ToggleNavMenu()
+    private List<SelectorMultipleModel> Seleccionados { get; set; } = new List<SelectorMultipleModel>();
+
+    private void ImageSelected(string imageB64)
     {
-        collapseNavMenu = !collapseNavMenu;
+        Movie.Poster = imageB64;
+    }
+
+    protected override void OnInitialized()
+    {
+        Seleccionados = CategoriasSeleccionadas.Select(x => new SelectorMultipleModel(x.Id.ToString(), x.Name)).ToList();
+        NoSeleccionados = CategoriasNoSeleccionadas.Select(x => new SelectorMultipleModel(x.Id.ToString(), x.Name)).ToList();
+        if (!string.IsNullOrWhiteSpace(Movie.Poster))
+        {
+            posterTemporal = Movie.Poster;
+            Movie.Poster = null;
+        }
     }
 
 #line default

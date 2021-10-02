@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace PraticaSemanaIV.Client.Shared
+namespace PraticaSemanaIV.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -96,7 +96,14 @@ using PraticaSemanaIV.Client.Services;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 1 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\SelectorMultiple.razor"
+using PraticaSemanaIV.Client.Model;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class SelectorMultiple : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -104,15 +111,54 @@ using PraticaSemanaIV.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Shared\NavMenu.razor"
+#line 67 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\SelectorMultiple.razor"
        
-    private bool collapseNavMenu = true;
+    private string removerTodoTexto = "<<";
+    private string pasarTodoTexto = ">>";
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    [Parameter]
+    public List<SelectorMultipleModel> NoSeleccionados { get; set; }
+    = new List<SelectorMultipleModel>();
 
-    private void ToggleNavMenu()
+    [Parameter]
+    public List<SelectorMultipleModel> Seleccionados { get; set; }
+    = new List<SelectorMultipleModel>();
+
+    
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 79 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\SelectorMultiple.razor"
+                                                                            
+    private void Seleccionar(SelectorMultipleModel item)
     {
-        collapseNavMenu = !collapseNavMenu;
+        NoSeleccionados.Remove(item);
+        Seleccionados.Add(item);
+    }
+    private void Deseleccionar(SelectorMultipleModel item)
+    {
+        Seleccionados.Remove(item);
+        NoSeleccionados.Add(item);
+    }
+    
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 90 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\SelectorMultiple.razor"
+                                                                 
+    private void SeleccionarTodo()
+    {
+        Seleccionados.AddRange(NoSeleccionados);
+        NoSeleccionados.Clear();
+    }
+    private void DeseleccionarTodo()
+    {
+        NoSeleccionados.AddRange(Seleccionados);
+        Seleccionados.Clear();
     }
 
 #line default

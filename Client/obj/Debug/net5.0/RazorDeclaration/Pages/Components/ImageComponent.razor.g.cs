@@ -109,8 +109,6 @@ using PraticaSemanaIV.Client.Services;
     [Parameter] public string Label { get; set; } = "Imagen";
     [Parameter] public string ImageURL { get; set; }
     [Parameter] public EventCallback<string> ImageSelected { get; set; }
-
-
     private string imageT;
     async Task OnChange(InputFileChangeEventArgs e)
     {
@@ -119,7 +117,7 @@ using PraticaSemanaIV.Client.Services;
         {
             var tamaño = new byte[image.Size];
             await image.OpenReadStream().ReadAsync(tamaño);
-            imageT =Convert.ToBase64String(tamaño);
+            imageT = Convert.ToBase64String(tamaño);
             ImageURL = null;
             await ImageSelected.InvokeAsync(imageT);
             StateHasChanged();

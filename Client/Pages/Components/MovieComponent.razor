@@ -7,14 +7,12 @@
         </p>
     <div>
         <a class="btn btn-info">Editar</a>
-        <button type="button" class="btn btn-danger" 
-        @onclick ="@(()=>DeleteMovie.InvokeAsync(Movie))"></button>
+        <button type="button" class="btn btn-danger">Eliminar</button>
     </div>
 </div> 
 
 @code{
     [Parameter] public Movie Movie{get;set;}
-    [Parameter] public EventCallback<Movie> DeleteMovie {get;set;}
     private string urlMovie = string.Empty;
 
     protected override void OnInitialized(){

@@ -96,7 +96,14 @@ using PraticaSemanaIV.Client.Services;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/movies/edit/{MovieId:int}")]
+#nullable restore
+#line 2 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Movies\EditMovie.razor"
+using PraticaSemanaIV.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/movies/edit/{Id:int}")]
     public partial class EditMovie : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -105,9 +112,28 @@ using PraticaSemanaIV.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 3 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Movies\EditMovie.razor"
-      
-    [Parameter] public int MovieId{get;set;}
+#line 5 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Movies\EditMovie.razor"
+       
+    [Parameter] public int Id { get; set; }
+    private Movie Movie;
+    protected override void OnInitialized()
+    {
+        Movie = new Movie()
+        {
+            Name = "El juego del calamar",
+            EnCartelera = true,
+            Sinopsis = "Sinopsis...",
+            Trailer = "Trailer"
+        };
+    }
+    void Edit()
+    {
+        Console.WriteLine($"Pelicula: {Movie.Name}");
+        Console.WriteLine($"Premier: {Movie.Premier}");
+        Console.WriteLine($"Esta en cartelera: {Movie.EnCartelera}");
+        Console.WriteLine($"Poster: {Movie.Poster}");
+        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+    }
 
 #line default
 #line hidden

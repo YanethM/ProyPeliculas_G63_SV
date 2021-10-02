@@ -104,10 +104,9 @@ using PraticaSemanaIV.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 15 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\MovieComponent.razor"
+#line 14 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\MovieComponent.razor"
       
     [Parameter] public Movie Movie{get;set;}
-    [Parameter] public EventCallback<Movie> DeleteMovie {get;set;}
     private string urlMovie = string.Empty;
 
     protected override void OnInitialized(){
