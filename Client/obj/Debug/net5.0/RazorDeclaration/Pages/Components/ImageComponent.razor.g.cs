@@ -104,25 +104,26 @@ using PraticaSemanaIV.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 24 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\ImageComponent.razor"
-      
-    private string imageOriginal;
-    [Parameter] public string imageOptional {get;set;}
-    [Parameter] public string Label {get;set;} = "Imagen";
-    [Parameter] public EventCallback <string> ImageSelected{get;set;}
+#line 31 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\ImageComponent.razor"
+       
+    [Parameter] public string Label { get; set; } = "Imagen";
+    [Parameter] public string ImageURL { get; set; }
+    [Parameter] public EventCallback<string> ImageSelected { get; set; }
 
-    async Task OnChange(InputFileChangeEventArgs e){
+
+    private string imageT;
+    async Task OnChange(InputFileChangeEventArgs e)
+    {
         var images = e.GetMultipleFiles();
         foreach (var image in images)
         {
             var tamaño = new byte[image.Size];
             await image.OpenReadStream().ReadAsync(tamaño);
-            imageOriginal = Convert.ToBase64String(tamaño);
-            imageOptional = null;
-            await ImageSelected.InvokeAsync(imageOriginal);
+            imageT =Convert.ToBase64String(tamaño);
+            ImageURL = null;
+            await ImageSelected.InvokeAsync(imageT);
             StateHasChanged();
         }
-
     }
 
 #line default

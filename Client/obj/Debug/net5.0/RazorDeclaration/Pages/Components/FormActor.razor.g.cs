@@ -96,13 +96,6 @@ using PraticaSemanaIV.Client.Services;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 1 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\FormActor.razor"
-using PraticaSemanaIV.Client.Pages.Components;
-
-#line default
-#line hidden
-#nullable disable
     public partial class FormActor : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -111,33 +104,27 @@ using PraticaSemanaIV.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\FormActor.razor"
+#line 31 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\FormActor.razor"
        
-    string imageOptional;
-    [Parameter] public Actor Actor{ get; set; }
+    string imageURL;
+    [Parameter] public Actor Actor { get; set; }
     [Parameter] public EventCallback OnValidSubmit { get; set; }
 
     protected override void OnInitialized()
     {
         if (!string.IsNullOrEmpty(Actor.Photo))
         {
-            imageOptional = Actor.Photo;
+            imageURL = Actor.Photo;
             Actor.Photo = null;
         }
     }
-    
 
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 46 "C:\ProysCicloIII\semana4_G63\PraticaSemanaIV\Client\Pages\Components\FormActor.razor"
-                                       
     private void ImageSelected(string imageB64)
     {
         Actor.Photo = imageB64;
-        imageOptional = null;
+        imageURL = null;
     }
+
 
 #line default
 #line hidden
